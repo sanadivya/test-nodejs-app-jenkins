@@ -1,28 +1,23 @@
 pipeline { 
   
-   agent any
+  agent any
 
-   stages {
-   
+  tools {
+        nodejs 'NODEJS' // Name of the Node.js configuration in Jenkins
+  }
+  
+  stages {
      stage('Install Dependencies') { 
         steps { 
-           sh 'npm install' 
+           bat 'npm install' 
         }
      }
      
      stage('Test') { 
         steps { 
-           sh 'echo "testing application..."'
+           bat 'echo "testing application..."'
         }
-      }
-
-         stage("Deploy npm cloud application") { 
-         steps { 
-           sh 'echo "deploying application..."'
-         }
-
      }
   
-   	}
-
-   }
+  }
+}
